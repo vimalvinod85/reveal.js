@@ -1,110 +1,277 @@
-<section data-background-color="#fcfcfc">
-                    <div style="display: flex; align-items: center; justify-content: space-between;">
-                        <div style="width: 50%; text-align: left;">
-                            <h1>Meet the CESA Team</h1>
-                            <p style="font-size: 20px; color: #666;">Your strategic partners in value realization.</p>
-                            <ul style="list-style: none; padding: 0; font-size: 18px;">
-                                <li style="margin-bottom: 15px;"><strong>Vimal Vinod</strong></li>
-                                <li style="margin-bottom: 15px;"><strong>Juliana Boers</strong></li>
-                                <li style="margin-bottom: 15px;"><strong>Ousseynou Faye</strong></li>
-                            </ul>
-                        </div>
-                        <div style="width: 45%;">
-                            <img src="AdobeStock_162750506.jpg" alt="Team Collaboration" style="border-radius: 10px; box-shadow: 10px 10px 0px #d4f01e;">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Kyriba CESA: Best Practices</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/simple.min.css">
+
+    <style>
+        :root {
+            --kyriba-off-white: #fcfcfc;
+            --kyriba-yellow: #d4f01e;
+            --kyriba-dark-grey: #2e3a3f;
+            --kyriba-text-main: #1a1a1a;
+        }
+
+        .reveal {
+            background-color: var(--kyriba-off-white);
+            color: var(--kyriba-text-main);
+        }
+
+        /* Typography per branding guide */
+        .reveal h1 { 
+            font-size: 52px !important; /* Max 52pt */
+            text-transform: none; 
+            font-weight: bold;
+            color: var(--kyriba-text-main);
+        }
+        .reveal h2 { 
+            font-size: 40px !important; 
+            text-transform: none; 
+            color: var(--kyriba-dark-grey);
+            border-bottom: 3px solid var(--kyriba-yellow);
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+        .reveal p, .reveal li { 
+            font-size: 20px; /* Within 13-20pt range */
+            line-height: 1.4;
+        }
+
+        /* Layout Elements */
+        .motto-box {
+            font-style: italic;
+            font-size: 36px !important;
+            border-left: 8px solid var(--kyriba-yellow);
+            padding: 20px 40px;
+            background: rgba(0,0,0,0.03);
+            text-align: left;
+        }
+
+        .org-chart {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        .org-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 250px;
+        }
+        .org-num {
+            font-size: 64px;
+            font-weight: bold;
+            color: var(--kyriba-text-main);
+        }
+
+        .split-view {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .step-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .step-card {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .step-header {
+            background: var(--kyriba-yellow);
+            font-weight: bold;
+            padding: 5px;
+            margin: -15px -15px 15px -15px;
+            border-radius: 8px 8px 0 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <h1>Best Practices for Working with Customer Engagement Solution Advisors</h1>
+                <p>Collaborating for Liquidity Performance & Strategic Growth</p>
+                <div style="margin-top: 100px; font-size: 16px; color: #666;">March 2026</div>
+            </section>
+
+            <section>
+                <h2>The CESA Mission</h2>
+                <div class="motto-box">
+                    "Transforming potential into performance by shifting from reactive support to proactive value engineering." [cite: 1392]
+                </div>
+                <p style="margin-top: 40px; text-align: left;">
+                    Unlocking unrealized customer value through deep product expertise and strategic solution architecture. [cite: 1390]
+                </p>
+            </section>
+
+            <section>
+                <h2>Customer Success Team Structure</h2>
+                <div class="org-chart">
+                    <div class="org-box">
+                        <div class="org-num">19</div>
+                        <div style="font-weight: bold;">CEEs</div>
+                        <p style="font-size: 14px;">Customer Engagement Executives</p>
+                    </div>
+                    <div style="align-self: center; font-size: 40px; color: #999;">+</div>
+                    <div class="org-box" style="border: 2px solid var(--kyriba-yellow);">
+                        <div class="org-num">3</div>
+                        <div style="font-weight: bold;">CESAs</div>
+                        <p style="font-size: 14px;">Customer Engagement Solution Advisors</p>
+                    </div>
+                </div>
+                <p style="margin-top: 40px; font-size: 16px; color: #666;">
+                    Strategic advisors and technical consultants partnering to maximize business outcomes. [cite: 1389, 1391]
+                </p>
+            </section>
+
+            <section>
+                <div class="split-view">
+                    <div style="flex: 1;">
+                        <h2>Meet Your CESA Team</h2>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 20px;"><strong>Vimal Vinod</strong></li>
+                            <li style="margin-bottom: 20px;"><strong>Juliana Boers</strong></li>
+                            <li style="margin-bottom: 20px;"><strong>Ousseynou Faye</strong></li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1;">
+                        <img src="AdobeStock_162750506.jpg" alt="Team Collaboration" style="border-radius: 10px; box-shadow: 10px 10px 0 var(--kyriba-yellow);">
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-color="#2e3a3f">
+                <h2 style="color: white; border-color: var(--kyriba-yellow);">Engagement Routing</h2>
+                <p style="color: #ccc; margin-bottom: 30px;">Triage method to follow before CESA engagement: [cite: 1545]</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; color: white;">
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: var(--kyriba-yellow);">Route to Support</h4>
+                        <p style="font-size: 16px;">Broken items, defects, outages, or unexpected behavior. [cite: 1491, 1546]</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: var(--kyriba-yellow);">Route to PS</h4>
+                        <p style="font-size: 16px;">New builds, modules, or configurations requiring a project plan. [cite: 1497, 1547]</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
+                        <h4 style="color: var(--kyriba-yellow);">Route to Elevate</h4>
+                        <p style="font-size: 16px;">Training, knowledge gaps, and onboarding new staff. [cite: 1501, 1548]</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; border: 1px solid var(--kyriba-yellow);">
+                        <h4 style="color: var(--kyriba-yellow);">Route to CESA (SA)</h4>
+                        <p style="font-size: 16px;">Outcome mapping, workflow alignment, and value articulation. [cite: 1505, 1549]</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="split-view">
+                    <div style="flex: 1.2;">
+                        <h2>Role Clarity</h2>
+                        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid var(--kyriba-yellow);">
+                                    <th style="padding: 10px; text-align: left;">CEE (Orchestrator)</th>
+                                    <th style="padding: 10px; text-align: left;">CESA (Accelerator)</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: 14px;">
+                                <tr>
+                                    <td style="padding: 10px; vertical-align: top;">
+                                        <ul>
+                                            <li>Owns value strategy [cite: 1551]</li>
+                                            <li>Revenue accountability [cite: 1552]</li>
+                                            <li>Identifies expansion signals [cite: 1554]</li>
+                                        </ul>
+                                    </td>
+                                    <td style="padding: 10px; vertical-align: top; background: rgba(0,0,0,0.02);">
+                                        <ul>
+                                            <li>Translates technical to business [cite: 1557]</li>
+                                            <li>Diagnoses workflow gaps [cite: 1558]</li>
+                                            <li>Validates feasibility [cite: 1559]</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="flex: 0.8;">
+                        <img src="AdobeStock_168035072.jpg" style="border-radius: 10px; width: 100%;">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>The 4-Step Engagement Model</h2>
+                <div class="step-container">
+                    <div class="step-card">
+                        <div class="step-header">1. Define</div>
+                        <p style="font-size: 14px;">CEE identifies objectives, risk level, and timing. [cite: 1573-1575]</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-header" style="background: var(--kyriba-dark-grey); color: white;">2. Align</div>
+                        <p style="font-size: 14px;">Define roles, messaging, and the expected deliverable. [cite: 1579-1583]</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-header">3. Interact</div>
+                        <p style="font-size: 14px;">CEE leads business framing; CESA leads technical mapping. [cite: 1584-1586]</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-header" style="background: var(--kyriba-dark-grey); color: white;">4. Drive</div>
+                        <p style="font-size: 14px;">Deliver agreed assets; CEE updates the Success Plan. [cite: 1588-1590]</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="split-view">
+                    <div style="flex: 1;">
+                        <h2>Pre-Engagement Checklist</h2>
+                        <p style="font-size: 16px; font-weight: bold;">CEE must provide: [cite: 1528-1529]</p>
+                        <ul style="font-size: 15px;">
+                            <li>Renewal Date & ARR [cite: 1530]</li>
+                            <li>Current Risk Status [cite: 1531]</li>
+                            <li>Problem Hypothesis (2-3 sentences) [cite: 1533]</li>
+                            <li>Desired Measurable Outcome [cite: 1534]</li>
+                            <li>Target Timeline [cite: 1535]</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1;">
+                        <img src="AdobeStock_188531911.jpg" style="border-radius: 10px; width: 100%;">
+                        <div style="background: var(--kyriba-yellow); padding: 15px; border-radius: 5px; margin-top: 15px; font-size: 14px;">
+                            <strong>Note:</strong> If you cannot articulate the business objective, do not engage CESA yet. [cite: 1508]
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section data-background-color="#2e3a3f">
-                    <h1 style="color: #d4f01e; font-size: 48px;">Rules of Engagement (ROE)</h1>
-                    <p style="color: white; font-size: 22px;"><strong>Purpose:</strong> Deliver measurable outcomes that drive renewals, retention, and growth[cite: 1543].</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; color: white; font-size: 16px; text-align: left;">
-                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
-                            <h3 style="color: #d4f01e; font-size: 20px;">Support vs. PS</h3>
-                            <ul style="padding-left: 20px;">
-                                <li><strong>Support:</strong> Broken items/incidents[cite: 1546].</li>
-                                <li><strong>PS:</strong> New builds or project work[cite: 1547].</li>
-                            </ul>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
-                            <h3 style="color: #d4f01e; font-size: 20px;">Elevate vs. SA (CESA)</h3>
-                            <ul style="padding-left: 20px;">
-                                <li><strong>Elevate:</strong> Training/knowledge gaps[cite: 1548].</li>
-                                <li><strong>SA:</strong> Outcome mapping & value[cite: 1549].</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+        </div>
+    </div>
 
-                <section data-background-color="#fcfcfc">
-                    <h2>Role Clarity: Orchestrator vs. Accelerator</h2>
-                    <table style="width: 100%; border-collapse: collapse; font-size: 16px;">
-                        <thead>
-                            <tr style="border-bottom: 2px solid #d4f01e;">
-                                <th style="padding: 15px; text-align: left;">CEE (Orchestrator)</th>
-                                <th style="padding: 15px; text-align: left;">SA (Outcome Accelerator)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding: 15px; vertical-align: top;">
-                                    <ul>
-                                        <li>Owns value realization strategy[cite: 1551].</li>
-                                        <li>Defines Customer PoV & metrics[cite: 1553].</li>
-                                        <li>Identifies risk/expansion signals[cite: 1554].</li>
-                                    </ul>
-                                </td>
-                                <td style="padding: 15px; vertical-align: top; background-color: #f9f9f9;">
-                                    <ul>
-                                        <li>Translates technical to business outcomes[cite: 1557].</li>
-                                        <li>Diagnoses adoption/workflow gaps[cite: 1558].</li>
-                                        <li>Validates expansion feasibility[cite: 1559].</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <img src="AdobeStock_168035072.jpg" style="height: 150px; margin-top: 20px; border-radius: 5px;">
-                </section>
-
-                <section data-background-color="#fcfcfc">
-                    <h2>Engagement Model: 4 Steps to Value</h2>
-                    <div style="display: flex; justify-content: space-between; gap: 10px;">
-                        <div style="flex: 1; border: 1px solid #ddd; padding: 10px; font-size: 14px;">
-                            <div style="background: #d4f01e; padding: 5px; font-weight: bold;">Step 1: Define</div>
-                            <p>CEE defines business objectives and risk[cite: 1573, 1574].</p>
-                        </div>
-                        <div style="flex: 1; border: 1px solid #ddd; padding: 10px; font-size: 14px;">
-                            <div style="background: #2e3a3f; color: white; padding: 5px; font-weight: bold;">Step 2: Align</div>
-                            <p>Set clear roles and expected deliverables[cite: 1579, 1580].</p>
-                        </div>
-                        <div style="flex: 1; border: 1px solid #ddd; padding: 10px; font-size: 14px;">
-                            <div style="background: #d4f01e; padding: 5px; font-weight: bold;">Step 3: Interact</div>
-                            <p>CEE frames business; SA leads technical translation[cite: 1585, 1586].</p>
-                        </div>
-                        <div style="flex: 1; border: 1px solid #ddd; padding: 10px; font-size: 14px;">
-                            <div style="background: #2e3a3f; color: white; padding: 5px; font-weight: bold;">Step 4: Drive</div>
-                            <p>SA delivers; CEE updates Success Plan[cite: 1589, 1590].</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section data-background-color="#fcfcfc">
-                    <div style="display: flex; align-items: start;">
-                        <div style="width: 60%; text-align: left;">
-                            <h1>CEE Submission Checklist</h1>
-                            <p style="font-size: 16px;">Required context before engaging SA support[cite: 1506]:</p>
-                            <ul style="font-size: 16px; columns: 1;">
-                                <li>Renewal date & ARR [cite: 1530]</li>
-                                <li>Risk status (Green/Yellow/Red) [cite: 1531]</li>
-                                <li>Clear Customer PoV & 3 outcomes [cite: 1507]</li>
-                                <li>2-3 sentence problem hypothesis [cite: 1533]</li>
-                                <li>Desired measurable outcome [cite: 1534]</li>
-                            </ul>
-                        </div>
-                        <div style="width: 35%; background: #eee; padding: 20px; border-radius: 10px; text-align: left; font-size: 14px;">
-                            <p><strong>Note:</strong> If you cannot articulate the business objective, do not engage SA yet[cite: 1508].</p>
-                            <img src="AdobeStock_188531911.jpg" style="width: 100%; border-radius: 5px; margin-top: 10px;">
-                        </div>
-                    </div>
-                </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            center: true,
+            transition: 'slide', // Options: none/fade/slide/convex/concave/zoom
+            controls: true,
+            progress: true
+        });
+    </script>
+</body>
+</html>
