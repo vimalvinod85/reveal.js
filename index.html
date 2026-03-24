@@ -2,35 +2,67 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>My Interactive Presentation</title>
+        <title>Kyriba CESA Best Practices</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/dracula.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/simple.min.css">
+        
+        <style>
+            :root {
+                --r-background-color: #fcfcfc; /* Kyriba Off-White [cite: 44] */
+                --r-main-font-size: 18px; /* Within 13-20 range [cite: 10] */
+                --r-heading-color: #1a1a1a;
+            }
+            .reveal h1 { font-size: 52px; text-transform: none; } /* Max 52pt [cite: 6] */
+            .reveal h2 { font-size: 40px; text-transform: none; color: #d4f01e; } /* Kyriba Yellow accent */
+            .motto { font-style: italic; font-size: 32px; border-left: 5px solid #d4f01e; padding-left: 20px; }
+            .org-container { display: flex; justify-content: space-around; align-items: center; margin-top: 50px; }
+            .stat-box { text-align: center; padding: 20px; background: #eee; border-radius: 10px; width: 40%; }
+            .stat-number { font-size: 60px; font-weight: bold; color: #1a1a1a; }
+        </style>
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
 
-                <section>
-                    <h1>My Presentation</h1>
-                    <p>Built with code, but no coding required.</p>
-                    <p><small>Press the spacebar to move forward</small></p>
+                <section data-background-color="#fcfcfc">
+                    <h1>Best practices for working with Customer Engagement Solution Advisors</h1>
+                    <p>Building a Bridge to Measurable Customer Value</p>
+                    <p style="font-size: 14px; margin-top: 50px;">March 2026</p>
                 </section>
 
-                <section>
-                    <h2>Visual Impact</h2>
-                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJndmZ6Z3R6Z3R6/3o7TKSjPqcKGRwS8M0/giphy.gif" alt="Rocket GIF">
+                <section data-background-color="#1a1a1a">
+                    <h2 style="color: #d4f01e;">Our Mission</h2>
+                    <blockquote class="motto" style="color: white; border-color: #d4f01e;">
+                        "Transforming potential into performance by shifting from reactive support to proactive value engineering." 
+                    </blockquote>
+                    <p style="color: #ccc; font-size: 18px; margin-top: 30px;">
+                        Unlocking unrealized value through deep product expertise and strategic solution architecture. [cite: 1390]
+                    </p>
                 </section>
 
-                <section>
-                    <h2>Live Data Visualization</h2>
-                    <iframe src="https://flo.uri.sh/visualisation/10850235/embed" 
-                            style="width: 100%; height: 500px; border: none;" 
-                            allowfullscreen allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media"></iframe>
-                </section>
+                <section data-background-color="#fcfcfc">
+                    <h2>Customer Success Team Structure</h2>
+                    <p>Designed for scalable, high-impact collaboration.</p>
+                    
+                    <div class="org-container">
+                        <div class="stat-box">
+                            <div class="stat-number">19</div>
+                            <div style="font-weight: bold;">CEEs</div>
+                            <p style="font-size: 14px;">Customer Engagement Executives</p>
+                        </div>
 
-                <section data-background-video="https://static.videezy.com/system/resources/previews/000/012/345/original/particle_wave.mp4" data-background-video-loop>
-                    <h2 style="color: white; text-shadow: 2px 2px 4px #000;">Cinematic Finish</h2>
-                    <p style="color: white;">This video plays on a loop behind your text.</p>
+                        <div style="font-size: 40px; color: #999;">&</div>
+
+                        <div class="stat-box" style="border: 2px solid #d4f01e;">
+                            <div class="stat-number">3</div>
+                            <div style="font-weight: bold;">CESAs</div>
+                            <p style="font-size: 14px;">Customer Engagement Solution Advisors</p>
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 16px; margin-top: 40px; color: #666;">
+                        The CESA team serves as strategic advisors and technical consultants to maximize business outcomes. [cite: 1389, 1391]
+                    </p>
                 </section>
 
             </div>
@@ -39,10 +71,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
         <script>
             Reveal.initialize({
-                hash: true, // This allows people to link to specific slides
-                controls: true,
-                progress: true,
-                center: true
+                hash: true,
+                center: true,
+                transition: 'slide' 
             });
         </script>
     </body>
