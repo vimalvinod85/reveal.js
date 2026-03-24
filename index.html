@@ -24,12 +24,12 @@
         /* Professional Kyriba Button Style */
         .kyriba-btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
+            margin-top: 15px;
+            padding: 10px 20px;
             background-color: var(--kyriba-yellow);
             color: var(--kyriba-text) !important;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
             text-decoration: none;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -46,30 +46,15 @@
         .step-card { background: white; border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
         .step-header { background: var(--kyriba-yellow); font-weight: bold; padding: 5px; margin: -15px -15px 15px -15px; border-radius: 8px 8px 0 0; font-size: 18px; }
 
-        /* New Team Bio Grid Styles */
-        .team-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
-        }
-        .team-member {
-            flex: 0 1 250px;
-            text-align: center;
-        }
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            object-fit: cover; /* Ensures photos aren't stretched */
-            border-radius: 5px;
-            box-shadow: 0 10px 0 var(--kyriba-yellow); /* Kyriba card style accent */
-            margin-bottom: 20px;
-        }
-        .member-name {
-            font-weight: bold;
-            margin: 10px 0 0 0;
-            font-size: 18px !important;
-        }
+        .team-grid { display: flex; justify-content: center; gap: 40px; margin-top: 30px; }
+        .team-member { flex: 0 1 250px; text-align: center; }
+        .profile-pic { width: 200px; height: 200px; object-fit: cover; border-radius: 5px; box-shadow: 0 10px 0 var(--kyriba-yellow); margin-bottom: 20px; }
+        .member-name { font-weight: bold; margin: 10px 0 0 0; font-size: 18px !important; }
+
+        /* Gainsight Activity Type Grid */
+        .gainsight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; text-align: left; }
+        .gainsight-card { background: white; padding: 15px; border-radius: 10px; border: 1px solid #ddd; height: 100%; }
+        .gainsight-card h4 { font-size: 18px; color: var(--kyriba-dark-grey); border-bottom: 2px solid var(--kyriba-yellow); padding-bottom: 5px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -233,6 +218,39 @@
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section>
+                <h2>Submitting a Request (Gainsight)</h2>
+                <p style="font-size: 18px; text-align: left;">Requests are submitted by creating an <strong>Activity</strong> in Gainsight and applying the CESA template. [cite: 1610-1612]</p>
+                
+                <div class="gainsight-grid">
+                    <div class="gainsight-card">
+                        <h4>SA Workshop</h4>
+                        <p style="font-size: 14px;">Strategic sessions for value discovery, workflow alignment, or executive conversations. [cite: 1618-1623]</p>
+                    </div>
+                    <div class="gainsight-card">
+                        <h4>SA Help</h4>
+                        <p style="font-size: 14px;">Quick support for functionality questions, ad hoc triage, or unclear customer asks. [cite: 1626-1631]</p>
+                    </div>
+                    <div class="gainsight-card" style="border: 2px solid var(--kyriba-yellow);">
+                        <h4>SA Database Review</h4>
+                        <p style="font-size: 14px;">Investigations into data quality, usage patterns, or structural analysis. [cite: 1633-1634]</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; font-size: 16px; background: rgba(0,0,0,0.05); padding: 15px; border-radius: 8px;">
+                    <strong>Status:</strong> Gainsight templates are currently under construction. <br>
+                    <strong>Target Completion:</strong> End of April 2026.
+                </div>
+                
+                <a href="https://docs.google.com/document/d/1PDH2UoIys2wzSEnoRRph6qypAKq3zmaD1QX0mIC3GV8/edit?usp=sharing" target="_blank" class="kyriba-btn">View Gainsight Request Documentation</a>
+            </section>
+
+            <section data-background-color="var(--kyriba-dark-grey)">
+                <h1 style="color: white;">Thank You.</h1>
+                <p style="color: var(--kyriba-yellow);">Let's unlock customer value together.</p>
+                <div style="margin-top: 50px; color: #ccc; font-size: 14px;">Questions? Reach out to the CESA Team.</div>
             </section>
 
         </div>
