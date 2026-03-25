@@ -15,6 +15,7 @@
             --kyriba-yellow: #d4f01e;
             --kyriba-dark-grey: #2e3a3f;
             --kyriba-text: #1a1a1a;
+            --glass: rgba(255, 255, 255, 0.1);
         }
 
         .reveal { background-color: var(--kyriba-off-white); color: var(--kyriba-text); }
@@ -25,82 +26,127 @@
         .kyriba-btn {
             display: inline-block;
             margin-top: 15px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: var(--kyriba-yellow);
             color: var(--kyriba-text) !important;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 16px;
             text-decoration: none;
             border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
         }
-        .kyriba-btn:hover { background-color: #c0d91a; transform: translateY(-2px); }
+        .kyriba-btn:hover { background-color: #c0d91a; transform: scale(1.05); }
 
+        /* Globe Section */
+        .globe-container {
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        #globeViz { width: 1000px; height: 600px; }
+
+        /* Interactive Reveal Card (Team) */
+        #reveal-card {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            text-align: center;
+            border: 2px solid var(--kyriba-yellow);
+            width: 350px;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Interactive Report Modal (Assessments) */
+        #report-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            text-align: left;
+            border-top: 8px solid var(--kyriba-yellow);
+            width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: translate(-50%, -40%) scale(0.8); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        #reveal-card img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        #report-img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            display: none; /* Hidden by default, shown via JS if exists */
+        }
+
+        #reveal-card h3 { margin: 0; color: var(--kyriba-dark-grey); font-size: 28px; }
+        #reveal-card p { color: #666; font-size: 18px; margin-top: 5px; }
+
+        .close-x {
+            position: absolute; top: 15px; right: 20px; cursor: pointer;
+            font-size: 30px; font-weight: bold; color: #ccc;
+        }
+        .close-x:hover { color: var(--kyriba-text); }
+
+        /* General Layouts */
         .motto-box { font-style: italic; font-size: 36px !important; border-left: 8px solid var(--kyriba-yellow); padding: 20px 40px; background: rgba(0,0,0,0.03); text-align: left; }
         .org-chart { display: flex; justify-content: center; gap: 50px; margin-top: 50px; }
         .org-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 250px; }
         .org-num { font-size: 64px; font-weight: bold; }
-        .split-view { display: flex; align-items: center; gap: 40px; text-align: left; }
         .step-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 30px; }
         .step-card { background: white; border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
         .step-header { background: var(--kyriba-yellow); font-weight: bold; padding: 5px; margin: -15px -15px 15px -15px; border-radius: 8px 8px 0 0; font-size: 18px; }
-
-        /* Integrated Globe Background */
-        .globe-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            opacity: 0.8; /* Slightly faded so text remains readable */
-        }
+        .split-view { display: flex; align-items: center; gap: 40px; text-align: left; }
         
-        /* Interactive Team Grid - Elevated over Globe */
-        .team-grid { 
-            display: flex; 
-            justify-content: center; 
-            gap: 40px; 
-            margin-top: 30px; 
-            position: relative;
-            z-index: 10; /* Keeps cards above the globe */
-        }
-        
-        .team-member { 
-            flex: 0 1 250px; 
-            text-align: center; 
-            background: rgba(255, 255, 255, 0.95); /* Glassy effect over globe */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 2px solid var(--kyriba-yellow);
-        }
-        
-        .photo-container {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 15px;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 5px 0 var(--kyriba-dark-grey);
-        }
-
-        .profile-pic { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-
+        .globe-bg { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.8; }
+        .team-grid { display: flex; justify-content: center; gap: 40px; margin-top: 30px; position: relative; z-index: 10; }
+        .team-member { flex: 0 1 250px; text-align: center; background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 2px solid var(--kyriba-yellow); cursor: pointer; transition: transform 0.2s;}
+        .team-member:hover { transform: translateY(-5px); }
+        .photo-container { width: 200px; height: 200px; margin: 0 auto 15px; border-radius: 5px; overflow: hidden; box-shadow: 0 5px 0 var(--kyriba-dark-grey); }
+        .profile-pic { width: 100%; height: 100%; object-fit: cover; }
         .member-name { font-weight: bold; margin: 10px 0 0 0; font-size: 22px !important; color: var(--kyriba-text); }
         .member-loc { font-size: 14px; color: #666; margin-top: 5px;}
-
-        /* Override heading color for Globe slide for readability */
         .globe-slide h2 { color: white; border-bottom: 3px solid var(--kyriba-yellow); }
 
         .gainsight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; text-align: left; }
-        .gainsight-card { background: white; padding: 15px; border-radius: 10px; border: 1px solid #ddd; height: 100%; }
-        .gainsight-card h4 { font-size: 18px; color: var(--kyriba-dark-grey); border-bottom: 2px solid var(--kyriba-yellow); padding-bottom: 5px; margin-bottom: 10px; }
+        .gainsight-card { background: white; padding: 25px; border-radius: 10px; border: 1px solid #ddd; height: 100%; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden;}
+        .gainsight-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .gainsight-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--kyriba-yellow); }
+        .gainsight-card h4 { font-size: 22px; color: var(--kyriba-dark-grey); margin-bottom: 15px; font-weight: bold; }
+        
+        .tag { display: inline-block; padding: 4px 8px; background: #eee; border-radius: 4px; font-size: 12px; font-weight: bold; color: #555; margin-bottom: 10px; margin-right: 5px;}
     </style>
 </head>
 <body>
@@ -147,23 +193,24 @@
                 <div class="globe-bg" id="globeViz"></div>
                 
                 <h2>Meet Your Global Team</h2>
+                <p style="color: #888; font-size: 16px; margin-top: -20px;">Click a card to view profile</p>
                 
                 <div class="team-grid">
-                    <div class="team-member">
+                    <div class="team-member" onclick="openProfile('Vimal.jpg', 'Vimal Vinod', 'London, England')">
                         <div class="photo-container">
                             <img src="Vimal.jpg" class="profile-pic" alt="Vimal Vinod">
                         </div>
                         <p class="member-name">Vimal Vinod</p>
                         <p class="member-loc">London, England</p>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" onclick="openProfile('Juliana.jpg', 'Juliana Boers', 'Toronto, Canada')">
                         <div class="photo-container">
                             <img src="Juliana.jpg" class="profile-pic" alt="Juliana Boers">
                         </div>
                         <p class="member-name">Juliana Boers</p>
                         <p class="member-loc">Toronto, Canada</p>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member" onclick="openProfile('Ousseynou.jpg', 'Ousseynou Faye', 'Dublin, Ireland')">
                         <div class="photo-container">
                             <img src="Ousseynou.jpg" class="profile-pic" alt="Ousseynou Faye">
                         </div>
@@ -182,11 +229,11 @@
                     </div>
                     <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
                         <h4 style="color: var(--kyriba-yellow);">Professional Services</h4>
-                        <p style="font-size: 16px;">New builds, modules, or configurations requiring a project plan.</p>
+                        <p style="font-size: 16px;">New builds, modules, or configurations requiring scoped project work.</p>
                     </div>
                     <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
                         <h4 style="color: var(--kyriba-yellow);">Elevate</h4>
-                        <p style="font-size: 16px;">Training, knowledge gaps, and staff onboarding.</p>
+                        <p style="font-size: 16px;">Training, knowledge gaps, and onboarding new customer staff.</p>
                     </div>
                     <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; border: 1px solid var(--kyriba-yellow);">
                         <h4 style="color: var(--kyriba-yellow);">CESA (SA)</h4>
@@ -210,16 +257,14 @@
                                 <tr>
                                     <td style="padding: 15px; vertical-align: top;">
                                         <ul>
-                                            <li>Owns value strategy</li>
-                                            <li>Revenue accountability</li>
-                                            <li>Identifies expansion signals</li>
+                                            <li>Owns value realization strategy.</li>
+                                            <li>Identifies risk and expansion signals.</li>
                                         </ul>
                                     </td>
                                     <td style="padding: 15px; vertical-align: top; background: rgba(0,0,0,0.02);">
                                         <ul>
-                                            <li>Translates technical to business</li>
-                                            <li>Diagnoses workflow gaps</li>
-                                            <li>Validates feasibility</li>
+                                            <li>Translates technical capabilities into outcomes.</li>
+                                            <li>Diagnoses adoption/workflow gaps.</li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -237,7 +282,7 @@
                 <div class="step-container">
                     <div class="step-card">
                         <div class="step-header">1. Define</div>
-                        <p style="font-size: 14px;">CEE identifies objectives, risk level, and timing.</p>
+                        <p style="font-size: 14px;">CEE identifies objectives and renewal risk.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-header" style="background: var(--kyriba-dark-grey); color: white;">2. Align</div>
@@ -245,11 +290,11 @@
                     </div>
                     <div class="step-card">
                         <div class="step-header">3. Interact</div>
-                        <p style="font-size: 14px;">CEE frames business; CESA leads technical mapping.</p>
+                        <p style="font-size: 14px;">CEE frames business; CESA leads technical translation.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-header" style="background: var(--kyriba-dark-grey); color: white;">4. Drive</div>
-                        <p style="font-size: 14px;">Deliver agreed assets; CEE updates the Success Plan.</p>
+                        <p style="font-size: 14px;">CESA delivers; CEE updates Success Plan within 48h.</p>
                     </div>
                 </div>
                 <a href="https://docs.google.com/document/d/13QXPrfvl9IuJx_dj3qyE-b0gwY92TfdzMwodyM7Ig1o/edit?usp=sharing" target="_blank" class="kyriba-btn">View Rules of Engagement</a>
@@ -272,64 +317,106 @@
                     <div style="flex: 1;">
                         <img src="AdobeStock_188531911.jpeg" style="border-radius: 10px; width: 100%;">
                         <div style="background: var(--kyriba-yellow); padding: 15px; border-radius: 5px; margin-top: 15px; font-size: 14px;">
-                            <strong>Note:</strong> SA engagement is impact-driven. If you cannot articulate the business objective, do not engage yet.
+                            <strong>Note:</strong> If you cannot articulate the business objective, do not engage CESA yet.
                         </div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2>Submitting a Request (Gainsight)</h2>
-                <p style="font-size: 18px; text-align: left;">Requests are submitted by creating an <strong>Activity</strong> in Gainsight and applying the CESA template.</p>
+                <h2>Submitting via Gainsight</h2>
+                <p style="font-size: 18px; text-align: left;">Create an <strong>Activity</strong> and apply the CESA template.</p>
                 
                 <div class="gainsight-grid">
                     <div class="gainsight-card">
                         <h4>SA Workshop</h4>
-                        <p style="font-size: 14px;">Strategic sessions for value discovery, workflow alignment, or executive conversations.</p>
+                        <p style="font-size: 14px;">Strategic sessions for value discovery or workflow alignment.</p>
                     </div>
                     <div class="gainsight-card">
                         <h4>SA Help</h4>
-                        <p style="font-size: 14px;">Quick support for functionality questions, ad hoc triage, or unclear customer asks.</p>
+                        <p style="font-size: 14px;">Quick support for functional questions or unclear asks.</p>
                     </div>
-                    <div class="gainsight-card" style="border: 2px solid var(--kyriba-yellow);">
+                    <div class="gainsight-card">
                         <h4>SA Database Review</h4>
-                        <p style="font-size: 14px;">Investigations into data quality, usage patterns, or structural analysis.</p>
+                        <p style="font-size: 14px;">Technical investigation of usage patterns or data quality.</p>
                     </div>
                 </div>
                 
                 <div style="margin-top: 30px; font-size: 16px; background: rgba(0,0,0,0.05); padding: 15px; border-radius: 8px;">
-                    <strong>Status:</strong> Gainsight templates are currently under construction. <br>
-                    <strong>Target Completion:</strong> End of April 2026.
+                    <strong>Target Completion:</strong> End of April 2026
                 </div>
                 
-                <a href="https://docs.google.com/document/d/1PDH2UoIys2wzSEnoRRph6qypAKq3zmaD1QX0mIC3GV8/edit?usp=sharing" target="_blank" class="kyriba-btn">View Gainsight Request Documentation</a>
+                <a href="https://docs.google.com/document/d/1PDH2UoIys2wzSEnoRRph6qypAKq3zmaD1QX0mIC3GV8/edit?usp=sharing" target="_blank" class="kyriba-btn">View Gainsight Documentation</a>
+            </section>
+
+            <section>
+                <h2>Assessment Tools (Prototypes)</h2>
+                <p style="font-size: 16px; margin-top: -20px;">Driving value conversations during Business Reviews. Click to view samples.</p>
+                
+                <div class="gainsight-grid">
+                    <div class="gainsight-card" onclick="openReport('Qualitative Review', 'Business Owners (Head of Treasury, CFO)', 'Salesforce + Cuvama', 'Sends a questionnaire focused on value realization. Generates a report comparing current state vs. peers vs. best practice.', 'Cuvama Assessment.jpg', 'https://kyriba.lightning.force.com/one/one.app#eyJjb21wb25lbnREZWYiOiJvbmU6YWxvaGFQYWdlIiwiYXR0cmlidXRlcyI6eyJhZGRyZXNzIjoiaHR0cHM6Ly9reXJpYmEtLWMudmYuZm9yY2UuY29tL2FwZXgvVmFsdWVFbmdpbmVlcmluZ1BlcmZvcm1hbmNlQnlQcm9jZXNzP2lkPWFERUlWMDAwMDAwVWpYWjRBMCZzZmRjSUZyYW1lT3JpZ2luPWh0dHBzJTNBJTJGJTJGa3lyaWJhLmxpZ2h0bmluZy5mb3JjZS5jb20ifSwic3RhdGUiOnt9fQ%3D%3D')">
+                        <span class="tag">Exec-Level</span>
+                        <h4>Qualitative Review</h4>
+                        <p style="font-size: 14px;">Value realization benchmarking vs. peers.</p>
+                        <p style="font-size: 12px; color: var(--kyriba-yellow); font-weight: bold; margin-top: 15px;">View Details →</p>
+                    </div>
+
+                    <div class="gainsight-card" onclick="openReport('Quantitative Review', 'Kyriba Users (Treasury Back Office, Sys Admin)', 'Google Forms + Dust AI (@CustomerAssessment)', 'A Google form sent by CEEs focusing on setup and best practices. Customers are scored based on responses, and the Dust AI agent generates a report with recommendations.', '', '')">
+                        <span class="tag">User-Level</span>
+                        <h4>Quantitative Review</h4>
+                        <p style="font-size: 14px;">Module setup scoring and AI recommendations.</p>
+                        <p style="font-size: 12px; color: var(--kyriba-yellow); font-weight: bold; margin-top: 15px;">View Details →</p>
+                    </div>
+
+                    <div class="gainsight-card" onclick="openReport('Utilization Review', 'Usage Tracking', 'Lookerstudio > BigQuery > Gainsight', 'Automatically tracks customer utilization percentages across recommended modules based on database logs.', 'Utilization Assessment.jpg', 'https://lookerstudio.google.com/u/0/reporting/26449f45-2af6-4cfc-a14b-cf1e770d2603/page/p_dwgs4n4evd')">
+                        <span class="tag">Automated</span>
+                        <h4>Utilization Review</h4>
+                        <p style="font-size: 14px;">Data-driven module utilization tracking.</p>
+                        <p style="font-size: 12px; color: var(--kyriba-yellow); font-weight: bold; margin-top: 15px;">View Details →</p>
+                    </div>
+                </div>
             </section>
 
             <section data-background-color="var(--kyriba-dark-grey)">
                 <h1 style="color: white;">Thank You.</h1>
                 <p style="color: var(--kyriba-yellow);">Let's unlock customer value together.</p>
-                <div style="margin-top: 50px; color: #ccc; font-size: 14px;">Questions? Reach out to the CESA Team.</div>
             </section>
 
         </div>
     </div>
 
+    <div id="reveal-card">
+        <div class="close-x" onclick="closeCard()">×</div>
+        <img id="card-img" src="" alt="Team Member">
+        <h3 id="card-name"></h3>
+        <p id="card-loc" style="font-size: 14px; color: #666; margin-top: 5px;"></p>
+    </div>
+
+    <div id="report-modal">
+        <div class="close-x" onclick="closeReport()">×</div>
+        <h2 id="report-title" style="margin-bottom: 10px; font-size: 32px; border:none;"></h2>
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <span class="tag" style="background: var(--kyriba-dark-grey); color: white;" id="report-target"></span>
+            <span class="tag" style="background: #eee;" id="report-tech"></span>
+        </div>
+        <p id="report-desc" style="font-size: 16px; color: #444; line-height: 1.5;"></p>
+        
+        <img id="report-img" src="" alt="Report Sample">
+        
+        <div id="report-link-container" style="margin-top: 20px; display: none;">
+            <a id="report-link" href="#" target="_blank" class="kyriba-btn">Open Live Dashboard</a>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
     <script>
-        // Initialize Reveal
-        Reveal.initialize({
-            hash: true,
-            center: true,
-            transition: 'slide',
-            controls: true,
-            progress: true
-        });
+        Reveal.initialize({ hash: true, center: true, transition: 'fade', controls: true, progress: true });
 
-        // Initialize Globe
+        /* Globe Integration */
         const teamData = [
-            { name: 'Vimal', city: 'London, England', lat: 51.5, lng: -0.12 },
-            { name: 'Juliana', city: 'Toronto, Canada', lat: 43.6, lng: -79.3 },
-            { name: 'Ousseynou', city: 'Dublin, Ireland', lat: 53.3, lng: -6.2 }
+            { name: 'Vimal Vinod', city: 'London, England', lat: 51.5, lng: -0.12, img: 'Vimal.jpg' },
+            { name: 'Juliana Boers', city: 'Toronto, Canada', lat: 43.6, lng: -79.3, img: 'Juliana.jpg' },
+            { name: 'Ousseynou Faye', city: 'Dublin, Ireland', lat: 53.3, lng: -6.2, img: 'Ousseynou.jpg' }
         ];
 
         const myGlobe = Globe()
@@ -349,6 +436,53 @@
         myGlobe.controls().autoRotate = true;
         myGlobe.controls().autoRotateSpeed = 1.0;
         myGlobe.pointOfView({ lat: 35, lng: -40, altitude: 2.5 });
+
+        /* Team Modal Logic */
+        function openProfile(imgSrc, name, loc) {
+            document.getElementById('card-img').src = imgSrc;
+            document.getElementById('card-name').innerText = name;
+            document.getElementById('card-loc').innerText = loc;
+            document.getElementById('reveal-card').style.display = 'block';
+            myGlobe.controls().autoRotate = false;
+        }
+
+        function closeCard() {
+            document.getElementById('reveal-card').style.display = 'none';
+            myGlobe.controls().autoRotate = true;
+        }
+
+        /* Assessment Report Modal Logic */
+        function openReport(title, target, tech, desc, imgSrc, linkUrl) {
+            document.getElementById('report-title').innerText = title;
+            document.getElementById('report-target').innerText = "Target: " + target;
+            document.getElementById('report-tech').innerText = "Stack: " + tech;
+            document.getElementById('report-desc').innerText = desc;
+
+            // Handle Image
+            const imgElement = document.getElementById('report-img');
+            if (imgSrc) {
+                imgElement.src = imgSrc;
+                imgElement.style.display = 'block';
+            } else {
+                imgElement.style.display = 'none';
+            }
+
+            // Handle Link
+            const linkContainer = document.getElementById('report-link-container');
+            const linkElement = document.getElementById('report-link');
+            if (linkUrl) {
+                linkElement.href = linkUrl;
+                linkContainer.style.display = 'block';
+            } else {
+                linkContainer.style.display = 'none';
+            }
+
+            document.getElementById('report-modal').style.display = 'block';
+        }
+
+        function closeReport() {
+            document.getElementById('report-modal').style.display = 'none';
+        }
     </script>
 </body>
 </html>
